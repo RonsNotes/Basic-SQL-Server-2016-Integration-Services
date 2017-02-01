@@ -1,0 +1,2308 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/30/2014 1:37:27 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="TRAINING"
+  DTS:CreatorName="Training\Student"
+  DTS:DTSID="{B426AC98-CFD6-49AB-AE05-620FB231CE33}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OptimizeSource"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{216B8FD6-269D-4E50-8CA8-401712A21FFE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\INSTANCE2.Demonstration]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F5AA0823-820F-45CB-91B2-12C4CCD23D79}"
+      DTS:ObjectName=".\INSTANCE2.Demonstration">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.\INSTANCE2;Initial Catalog=Demonstration;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\INSTANCE2.Demonstration1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{F16BCA01-EF24-474D-A920-46A0889F8868}"
+      DTS:ObjectName=".\INSTANCE2.Demonstration1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.\INSTANCE2;Initial Catalog=Demonstration;Integrated Security=True;Application Name=SSIS-OptimizeSource-{F16BCA01-EF24-474D-A920-46A0889F8868}.\INSTANCE2.Demonstration1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.AdventureWorksDW2012]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{596786DA-AA7C-4B06-A1F8-C3D5F819B81F}"
+      DTS:ObjectName="LocalHost.AdventureWorksDW2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureWorksDW2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.AdventureWorksDW20121]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{CDC552AC-8820-419A-B333-46CC077A8C03}"
+      DTS:ObjectName="LocalHost.AdventureWorksDW20121">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureWorksDW2012;Integrated Security=True;Application Name=SSIS-OptimizeSource-{CDC552AC-8820-419A-B333-46CC077A8C03}LocalHost.AdventureWorksDW20121;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{38F0E6B3-4F05-491A-8C07-5959542174C5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MyRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container ADO NET"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{03B9E951-1912-40F2-9831-9154A55C79D9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container ADO NET">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container ADO NET\Data Flow ADO NET"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{F521D03A-C8B2-464D-AE87-6C85EF2BC13D}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow ADO NET"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination"
+                  componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+                  contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                  name="ADO NET Destination"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The Destination database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"ADO NET FACT from DW"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[.\INSTANCE2.Demonstration1]"
+                      connectionManagerRefId="Package.ConnectionManagers[.\INSTANCE2.Demonstration1]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="ADO NET Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ProductKey]"
+                          cachedDataType="i4"
+                          cachedName="ProductKey"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProductKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProductKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[OrderDateKey]"
+                          cachedDataType="i4"
+                          cachedName="OrderDateKey"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderDateKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDateKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[DueDateKey]"
+                          cachedDataType="i4"
+                          cachedName="DueDateKey"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DueDateKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DueDateKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ShipDateKey]"
+                          cachedDataType="i4"
+                          cachedName="ShipDateKey"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ShipDateKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipDateKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[CustomerKey]"
+                          cachedDataType="i4"
+                          cachedName="CustomerKey"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CustomerKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[PromotionKey]"
+                          cachedDataType="i4"
+                          cachedName="PromotionKey"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[PromotionKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[PromotionKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[CurrencyKey]"
+                          cachedDataType="i4"
+                          cachedName="CurrencyKey"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CurrencyKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CurrencyKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SalesTerritoryKey]"
+                          cachedDataType="i4"
+                          cachedName="SalesTerritoryKey"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesTerritoryKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesTerritoryKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SalesOrderNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="SalesOrderNumber"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesOrderNumber]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SalesOrderLineNumber]"
+                          cachedDataType="ui1"
+                          cachedName="SalesOrderLineNumber"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesOrderLineNumber]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderLineNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[RevisionNumber]"
+                          cachedDataType="ui1"
+                          cachedName="RevisionNumber"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[RevisionNumber]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[RevisionNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[OrderQuantity]"
+                          cachedDataType="i2"
+                          cachedName="OrderQuantity"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderQuantity]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderQuantity]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[UnitPrice]"
+                          cachedDataType="cy"
+                          cachedName="UnitPrice"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[UnitPrice]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[UnitPrice]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ExtendedAmount]"
+                          cachedDataType="cy"
+                          cachedName="ExtendedAmount"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ExtendedAmount]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ExtendedAmount]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[UnitPriceDiscountPct]"
+                          cachedDataType="r8"
+                          cachedName="UnitPriceDiscountPct"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[UnitPriceDiscountPct]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[UnitPriceDiscountPct]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[DiscountAmount]"
+                          cachedDataType="r8"
+                          cachedName="DiscountAmount"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DiscountAmount]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountAmount]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ProductStandardCost]"
+                          cachedDataType="cy"
+                          cachedName="ProductStandardCost"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProductStandardCost]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProductStandardCost]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[TotalProductCost]"
+                          cachedDataType="cy"
+                          cachedName="TotalProductCost"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TotalProductCost]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[TotalProductCost]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SalesAmount]"
+                          cachedDataType="cy"
+                          cachedName="SalesAmount"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesAmount]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesAmount]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[TaxAmt]"
+                          cachedDataType="cy"
+                          cachedName="TaxAmt"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TaxAmt]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[TaxAmt]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Freight]"
+                          cachedDataType="cy"
+                          cachedName="Freight"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Freight]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[Freight]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[CarrierTrackingNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="CarrierTrackingNumber"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CarrierTrackingNumber]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CarrierTrackingNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[CustomerPONumber]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="CustomerPONumber"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CustomerPONumber]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerPONumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[OrderDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="OrderDate"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderDate]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[DueDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DueDate"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DueDate]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DueDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ShipDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ShipDate"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ShipDate]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProductKey]"
+                          dataType="i4"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderDateKey]"
+                          dataType="i4"
+                          name="OrderDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DueDateKey]"
+                          dataType="i4"
+                          name="DueDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ShipDateKey]"
+                          dataType="i4"
+                          name="ShipDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CustomerKey]"
+                          dataType="i4"
+                          name="CustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[PromotionKey]"
+                          dataType="i4"
+                          name="PromotionKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CurrencyKey]"
+                          dataType="i4"
+                          name="CurrencyKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesTerritoryKey]"
+                          dataType="i4"
+                          name="SalesTerritoryKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesOrderNumber]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrderNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesOrderLineNumber]"
+                          dataType="ui1"
+                          name="SalesOrderLineNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[RevisionNumber]"
+                          dataType="ui1"
+                          name="RevisionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderQuantity]"
+                          dataType="i2"
+                          name="OrderQuantity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[UnitPrice]"
+                          dataType="numeric"
+                          name="UnitPrice"
+                          precision="19"
+                          scale="255" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ExtendedAmount]"
+                          dataType="numeric"
+                          name="ExtendedAmount"
+                          precision="19"
+                          scale="255" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[UnitPriceDiscountPct]"
+                          dataType="r8"
+                          name="UnitPriceDiscountPct" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DiscountAmount]"
+                          dataType="r8"
+                          name="DiscountAmount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProductStandardCost]"
+                          dataType="numeric"
+                          name="ProductStandardCost"
+                          precision="19"
+                          scale="255" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TotalProductCost]"
+                          dataType="numeric"
+                          name="TotalProductCost"
+                          precision="19"
+                          scale="255" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesAmount]"
+                          dataType="numeric"
+                          name="SalesAmount"
+                          precision="19"
+                          scale="255" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TaxAmt]"
+                          dataType="numeric"
+                          name="TaxAmt"
+                          precision="19"
+                          scale="255" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Freight]"
+                          dataType="numeric"
+                          name="Freight"
+                          precision="19"
+                          scale="255" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="CarrierTrackingNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CustomerPONumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="CustomerPONumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          name="OrderDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DueDate]"
+                          dataType="dbTimeStamp"
+                          name="DueDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          name="ShipDate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ADO NET Destination Error Output"
+                      synchronousInputId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source"
+                  componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+                  contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+                  name="ADO NET Source"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement used by the component to extract data."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="The Source database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"dbo"."FactInternetSales"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the mode to retrieve external column information"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.AdventureWorksDW20121]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.AdventureWorksDW20121]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output]"
+                      name="ADO NET Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProductKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ProductKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProductKey]"
+                          name="ProductKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderDateKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDateKey]"
+                          name="OrderDateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DueDateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DueDateKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DueDateKey]"
+                          name="DueDateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipDateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ShipDateKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipDateKey]"
+                          name="ShipDateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerKey]"
+                          name="CustomerKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[PromotionKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[PromotionKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[PromotionKey]"
+                          name="PromotionKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CurrencyKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CurrencyKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CurrencyKey]"
+                          name="CurrencyKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesTerritoryKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryKey]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesTerritoryKey]"
+                          name="SalesTerritoryKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesOrderNumber]"
+                          length="20"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderNumber]"
+                          name="SalesOrderNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderLineNumber]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesOrderLineNumber]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesOrderLineNumber]"
+                          name="SalesOrderLineNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[RevisionNumber]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[RevisionNumber]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[RevisionNumber]"
+                          name="RevisionNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderQuantity]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderQuantity]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderQuantity]"
+                          name="OrderQuantity"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[UnitPrice]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[UnitPrice]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[UnitPrice]"
+                          name="UnitPrice"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ExtendedAmount]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ExtendedAmount]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ExtendedAmount]"
+                          name="ExtendedAmount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[UnitPriceDiscountPct]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[UnitPriceDiscountPct]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[UnitPriceDiscountPct]"
+                          name="UnitPriceDiscountPct"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountAmount]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DiscountAmount]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountAmount]"
+                          name="DiscountAmount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProductStandardCost]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ProductStandardCost]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProductStandardCost]"
+                          name="ProductStandardCost"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[TotalProductCost]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[TotalProductCost]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[TotalProductCost]"
+                          name="TotalProductCost"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesAmount]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesAmount]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesAmount]"
+                          name="SalesAmount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[TaxAmt]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[TaxAmt]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[TaxAmt]"
+                          name="TaxAmt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[Freight]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Freight]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[Freight]"
+                          name="Freight"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CarrierTrackingNumber]"
+                          length="25"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CarrierTrackingNumber]"
+                          name="CarrierTrackingNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerPONumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerPONumber]"
+                          length="25"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerPONumber]"
+                          name="CustomerPONumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderDate]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                          name="OrderDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DueDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DueDate]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DueDate]"
+                          name="DueDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ShipDate]"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ShipDate]"
+                          name="ShipDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ProductKey]"
+                          dataType="i4"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderDateKey]"
+                          dataType="i4"
+                          name="OrderDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DueDateKey]"
+                          dataType="i4"
+                          name="DueDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ShipDateKey]"
+                          dataType="i4"
+                          name="ShipDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerKey]"
+                          dataType="i4"
+                          name="CustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[PromotionKey]"
+                          dataType="i4"
+                          name="PromotionKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CurrencyKey]"
+                          dataType="i4"
+                          name="CurrencyKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryKey]"
+                          dataType="i4"
+                          name="SalesTerritoryKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesOrderNumber]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrderNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesOrderLineNumber]"
+                          dataType="ui1"
+                          name="SalesOrderLineNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[RevisionNumber]"
+                          dataType="ui1"
+                          name="RevisionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderQuantity]"
+                          dataType="i2"
+                          name="OrderQuantity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[UnitPrice]"
+                          dataType="cy"
+                          name="UnitPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ExtendedAmount]"
+                          dataType="cy"
+                          name="ExtendedAmount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[UnitPriceDiscountPct]"
+                          dataType="r8"
+                          name="UnitPriceDiscountPct" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DiscountAmount]"
+                          dataType="r8"
+                          name="DiscountAmount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ProductStandardCost]"
+                          dataType="cy"
+                          name="ProductStandardCost" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[TotalProductCost]"
+                          dataType="cy"
+                          name="TotalProductCost" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesAmount]"
+                          dataType="cy"
+                          name="SalesAmount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[TaxAmt]"
+                          dataType="cy"
+                          name="TaxAmt" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Freight]"
+                          dataType="cy"
+                          name="Freight" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="CarrierTrackingNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerPONumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="CustomerPONumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          name="OrderDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DueDate]"
+                          dataType="dbTimeStamp"
+                          name="DueDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          name="ShipDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                      isErrorOut="true"
+                      name="ADO NET Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ProductKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ProductKey]"
+                          name="ProductKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderDateKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderDateKey]"
+                          name="OrderDateKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DueDateKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DueDateKey]"
+                          name="DueDateKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ShipDateKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ShipDateKey]"
+                          name="ShipDateKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerKey]"
+                          name="CustomerKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[PromotionKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[PromotionKey]"
+                          name="PromotionKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CurrencyKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CurrencyKey]"
+                          name="CurrencyKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryKey]"
+                          name="SalesTerritoryKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesOrderNumber]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesOrderNumber]"
+                          name="SalesOrderNumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesOrderLineNumber]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesOrderLineNumber]"
+                          name="SalesOrderLineNumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[RevisionNumber]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[RevisionNumber]"
+                          name="RevisionNumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderQuantity]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderQuantity]"
+                          name="OrderQuantity" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[UnitPrice]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[UnitPrice]"
+                          name="UnitPrice" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ExtendedAmount]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ExtendedAmount]"
+                          name="ExtendedAmount" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[UnitPriceDiscountPct]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[UnitPriceDiscountPct]"
+                          name="UnitPriceDiscountPct" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DiscountAmount]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DiscountAmount]"
+                          name="DiscountAmount" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ProductStandardCost]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ProductStandardCost]"
+                          name="ProductStandardCost" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[TotalProductCost]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[TotalProductCost]"
+                          name="TotalProductCost" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesAmount]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesAmount]"
+                          name="SalesAmount" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[TaxAmt]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[TaxAmt]"
+                          name="TaxAmt" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Freight]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Freight]"
+                          name="Freight" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CarrierTrackingNumber]"
+                          name="CarrierTrackingNumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerPONumber]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerPONumber]"
+                          name="CustomerPONumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderDate]"
+                          name="OrderDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DueDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DueDate]"
+                          name="DueDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ShipDate]"
+                          name="ShipDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container ADO NET\Data Flow ADO NET.Paths[ADO NET Source Output]"
+                  endId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  name="ADO NET Source Output"
+                  startId="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source.Outputs[ADO NET Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container ADO NET\Execute SQL Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c310f7d5-af9f-49c3-90b3-2a378a2d2736}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F5AA0823-820F-45CB-91B2-12C4CCD23D79}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="USE [Demonstration]&#xA;GO&#xA;TRUNCATE TABLE [dbo].[ADO NET FACT from DW]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container ADO NET.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{BF54F79A-7B9F-4B9C-AC2E-BD8D268F40CA}"
+          DTS:From="Package\Sequence Container ADO NET\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container ADO NET\Data Flow ADO NET" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container OLE DB"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D49A26EE-B609-4AD4-8154-FEB4856C7BE7}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container OLE DB">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container OLE DB\Data Flow OLE DB"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{65A4A6DF-33BA-433A-A024-EA4F6C5A6B18}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow OLE DB"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Fact from DW]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[.\INSTANCE2.Demonstration]"
+                      connectionManagerRefId="Package.ConnectionManagers[.\INSTANCE2.Demonstration]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                          cachedDataType="i4"
+                          cachedName="ProductKey"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderDateKey]"
+                          cachedDataType="i4"
+                          cachedName="OrderDateKey"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderDateKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDateKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DueDateKey]"
+                          cachedDataType="i4"
+                          cachedName="DueDateKey"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDateKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipDateKey]"
+                          cachedDataType="i4"
+                          cachedName="ShipDateKey"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipDateKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDateKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerKey]"
+                          cachedDataType="i4"
+                          cachedName="CustomerKey"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PromotionKey]"
+                          cachedDataType="i4"
+                          cachedName="PromotionKey"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PromotionKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[PromotionKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrencyKey]"
+                          cachedDataType="i4"
+                          cachedName="CurrencyKey"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesTerritoryKey]"
+                          cachedDataType="i4"
+                          cachedName="SalesTerritoryKey"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesTerritoryKey]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesOrderNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="SalesOrderNumber"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesOrderLineNumber]"
+                          cachedDataType="ui1"
+                          cachedName="SalesOrderLineNumber"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderLineNumber]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderLineNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RevisionNumber]"
+                          cachedDataType="ui1"
+                          cachedName="RevisionNumber"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevisionNumber]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderQuantity]"
+                          cachedDataType="i2"
+                          cachedName="OrderQuantity"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderQuantity]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQuantity]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                          cachedDataType="cy"
+                          cachedName="UnitPrice"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExtendedAmount]"
+                          cachedDataType="cy"
+                          cachedName="ExtendedAmount"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtendedAmount]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedAmount]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitPriceDiscountPct]"
+                          cachedDataType="r8"
+                          cachedName="UnitPriceDiscountPct"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPriceDiscountPct]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscountPct]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DiscountAmount]"
+                          cachedDataType="r8"
+                          cachedName="DiscountAmount"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountAmount]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountAmount]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductStandardCost]"
+                          cachedDataType="cy"
+                          cachedName="ProductStandardCost"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductStandardCost]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductStandardCost]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TotalProductCost]"
+                          cachedDataType="cy"
+                          cachedName="TotalProductCost"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalProductCost]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalProductCost]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesAmount]"
+                          cachedDataType="cy"
+                          cachedName="SalesAmount"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAmount]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TaxAmt]"
+                          cachedDataType="cy"
+                          cachedName="TaxAmt"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Freight]"
+                          cachedDataType="cy"
+                          cachedName="Freight"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CarrierTrackingNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="CarrierTrackingNumber"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CarrierTrackingNumber]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerPONumber]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="CustomerPONumber"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerPONumber]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerPONumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="OrderDate"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DueDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DueDate"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDate]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ShipDate"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                          dataType="i4"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderDateKey]"
+                          dataType="i4"
+                          name="OrderDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDateKey]"
+                          dataType="i4"
+                          name="DueDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipDateKey]"
+                          dataType="i4"
+                          name="ShipDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                          dataType="i4"
+                          name="CustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PromotionKey]"
+                          dataType="i4"
+                          name="PromotionKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                          dataType="i4"
+                          name="CurrencyKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryKey]"
+                          dataType="i4"
+                          name="SalesTerritoryKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrderNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderLineNumber]"
+                          dataType="ui1"
+                          name="SalesOrderLineNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevisionNumber]"
+                          dataType="ui1"
+                          name="RevisionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderQuantity]"
+                          dataType="i2"
+                          name="OrderQuantity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                          dataType="cy"
+                          name="UnitPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtendedAmount]"
+                          dataType="cy"
+                          name="ExtendedAmount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPriceDiscountPct]"
+                          dataType="r8"
+                          name="UnitPriceDiscountPct" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountAmount]"
+                          dataType="r8"
+                          name="DiscountAmount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductStandardCost]"
+                          dataType="cy"
+                          name="ProductStandardCost" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalProductCost]"
+                          dataType="cy"
+                          name="TotalProductCost" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAmount]"
+                          dataType="cy"
+                          name="SalesAmount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                          dataType="cy"
+                          name="TaxAmt" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                          dataType="cy"
+                          name="Freight" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="CarrierTrackingNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerPONumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="CustomerPONumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          name="OrderDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDate]"
+                          dataType="dbTimeStamp"
+                          name="DueDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          name="ShipDate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FactInternetSales]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.AdventureWorksDW2012]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.AdventureWorksDW2012]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                          name="ProductKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDateKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDateKey]"
+                          name="OrderDateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDateKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateKey]"
+                          name="DueDateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDateKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDateKey]"
+                          name="ShipDateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerKey]"
+                          name="CustomerKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[PromotionKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PromotionKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[PromotionKey]"
+                          name="PromotionKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrencyKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyKey]"
+                          name="CurrencyKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesTerritoryKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesTerritoryKey]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesTerritoryKey]"
+                          name="SalesTerritoryKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                          length="20"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                          name="SalesOrderNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderLineNumber]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderLineNumber]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderLineNumber]"
+                          name="SalesOrderLineNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevisionNumber]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                          name="RevisionNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQuantity]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderQuantity]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQuantity]"
+                          name="OrderQuantity"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                          name="UnitPrice"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedAmount]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtendedAmount]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedAmount]"
+                          name="ExtendedAmount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscountPct]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPriceDiscountPct]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscountPct]"
+                          name="UnitPriceDiscountPct"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountAmount]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountAmount]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountAmount]"
+                          name="DiscountAmount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductStandardCost]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductStandardCost]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductStandardCost]"
+                          name="ProductStandardCost"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalProductCost]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalProductCost]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalProductCost]"
+                          name="TotalProductCost"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                          name="SalesAmount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                          name="TaxAmt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                          name="Freight"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CarrierTrackingNumber]"
+                          length="25"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]"
+                          name="CarrierTrackingNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerPONumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerPONumber]"
+                          length="25"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerPONumber]"
+                          name="CustomerPONumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                          name="OrderDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                          name="DueDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                          name="ShipDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                          dataType="i4"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDateKey]"
+                          dataType="i4"
+                          name="OrderDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDateKey]"
+                          dataType="i4"
+                          name="DueDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDateKey]"
+                          dataType="i4"
+                          name="ShipDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerKey]"
+                          dataType="i4"
+                          name="CustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PromotionKey]"
+                          dataType="i4"
+                          name="PromotionKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrencyKey]"
+                          dataType="i4"
+                          name="CurrencyKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesTerritoryKey]"
+                          dataType="i4"
+                          name="SalesTerritoryKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                          dataType="wstr"
+                          length="20"
+                          name="SalesOrderNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderLineNumber]"
+                          dataType="ui1"
+                          name="SalesOrderLineNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevisionNumber]"
+                          dataType="ui1"
+                          name="RevisionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderQuantity]"
+                          dataType="i2"
+                          name="OrderQuantity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                          dataType="cy"
+                          name="UnitPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtendedAmount]"
+                          dataType="cy"
+                          name="ExtendedAmount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPriceDiscountPct]"
+                          dataType="r8"
+                          name="UnitPriceDiscountPct" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountAmount]"
+                          dataType="r8"
+                          name="DiscountAmount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductStandardCost]"
+                          dataType="cy"
+                          name="ProductStandardCost" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalProductCost]"
+                          dataType="cy"
+                          name="TotalProductCost" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                          dataType="cy"
+                          name="SalesAmount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                          dataType="cy"
+                          name="TaxAmt" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                          dataType="cy"
+                          name="Freight" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="CarrierTrackingNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerPONumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="CustomerPONumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          name="OrderDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
+                          dataType="dbTimeStamp"
+                          name="DueDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          name="ShipDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                          name="ProductKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDateKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDateKey]"
+                          name="OrderDateKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDateKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDateKey]"
+                          name="DueDateKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDateKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDateKey]"
+                          name="ShipDateKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerKey]"
+                          name="CustomerKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PromotionKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PromotionKey]"
+                          name="PromotionKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrencyKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrencyKey]"
+                          name="CurrencyKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesTerritoryKey]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesTerritoryKey]"
+                          name="SalesTerritoryKey" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                          name="SalesOrderNumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderLineNumber]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderLineNumber]"
+                          name="SalesOrderLineNumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevisionNumber]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevisionNumber]"
+                          name="RevisionNumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderQuantity]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderQuantity]"
+                          name="OrderQuantity" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                          name="UnitPrice" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtendedAmount]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtendedAmount]"
+                          name="ExtendedAmount" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPriceDiscountPct]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPriceDiscountPct]"
+                          name="UnitPriceDiscountPct" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountAmount]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountAmount]"
+                          name="DiscountAmount" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductStandardCost]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductStandardCost]"
+                          name="ProductStandardCost" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalProductCost]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalProductCost]"
+                          name="TotalProductCost" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                          name="SalesAmount" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                          name="TaxAmt" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                          name="Freight" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CarrierTrackingNumber]"
+                          name="CarrierTrackingNumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerPONumber]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerPONumber]"
+                          name="CustomerPONumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                          name="OrderDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDate]"
+                          name="DueDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                          name="ShipDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container OLE DB\Data Flow OLE DB.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container OLE DB\Execute SQL Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{334EF182-B435-4CD0-823D-9E7CC317227E}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F5AA0823-820F-45CB-91B2-12C4CCD23D79}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="USE [Demonstration]&#xA;GO&#xA;TRUNCATE TABLE [dbo].[Fact from DW]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container OLE DB.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B36D10BF-4768-469A-BBC7-1C1AC32CCE1A}"
+          DTS:From="Package\Sequence Container OLE DB\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container OLE DB\Data Flow OLE DB" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Sequence Container OLE DB\Data Flow OLE DB"
+          TopLeft="35.5,80.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Sequence Container OLE DB\Execute SQL Task"
+          TopLeft="20.5,1.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container OLE DB.PrecedenceConstraints[Constraint]"
+          TopLeft="102,43.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16,37"
+              Start="0,0"
+              End="16,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="12,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,18.5"
+                    Point2="16,18.5"
+                    Point3="16,22.5" />
+                  <mssgle:LineSegment
+                    End="16,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="235,177"
+          Size="235,220"
+          Id="Package\Sequence Container OLE DB"
+          TopLeft="35.5,41.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Sequence Container ADO NET\Data Flow ADO NET"
+          TopLeft="5.5,90.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Sequence Container ADO NET\Execute SQL Task"
+          TopLeft="19,6" />
+        <EdgeLayout
+          Id="Package\Sequence Container ADO NET.PrecedenceConstraints[Constraint]"
+          TopLeft="100.5,48">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,42.5"
+              Start="0,0"
+              End="-8.5,35">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.25"
+                    Point2="0,21.25"
+                    Point3="-4,21.25" />
+                  <mssgle:LineSegment
+                    End="-4.5,21.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,21.25"
+                    Point2="-8.5,21.25"
+                    Point3="-8.5,25.25" />
+                  <mssgle:LineSegment
+                    End="-8.5,35" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,187"
+          Size="205,230"
+          Id="Package\Sequence Container ADO NET"
+          TopLeft="324.5,48.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container OLE DB\Data Flow OLE DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source"
+          TopLeft="48.5,5.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination"
+          TopLeft="48.5,171.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container OLE DB\Data Flow OLE DB.Paths[OLE DB Source Output]"
+          TopLeft="123.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,124"
+              Start="0,0"
+              End="10.5,116.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,58"
+                    Point2="0,62"
+                    Point3="4,62" />
+                  <mssgle:LineSegment
+                    End="6.5,62" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,62"
+                    Point2="10.5,62"
+                    Point3="10.5,66" />
+                  <mssgle:LineSegment
+                    End="10.5,116.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Sequence Container ADO NET\Data Flow ADO NET">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination"
+          TopLeft="36.5,167.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container ADO NET\Data Flow ADO NET.Paths[ADO NET Source Output]"
+          TopLeft="84.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.5,120"
+              Start="0,0"
+              End="41.5,112.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56"
+                    Point2="0,60"
+                    Point3="4,60" />
+                  <mssgle:LineSegment
+                    End="37.5,60" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.5,60"
+                    Point2="41.5,60"
+                    Point3="41.5,64" />
+                  <mssgle:LineSegment
+                    End="41.5,112.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container OLE DB\Data Flow OLE DB\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container ADO NET\Data Flow ADO NET\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
