@@ -52,8 +52,9 @@ Test-CorrectFiles
 #TASK: CREATE HUMONGOUS VIRTUAL MACHINE
 Function Create-Humongous {
 $VMName = "Humongous"
-New-VHD  -Path "C:\RonsNotes\VM_Drives\Humongus\Humongus.vhdx" -SizeBytes 60GB -DynamicMemoryEnabled $false
+New-VHD  -Path "C:\RonsNotes\VM_Drives\Humongus\Humongus.vhdx" -SizeBytes 60GB 
 New-vm -Name $VMName -MemoryStartupBytes 8GB  -VHDPath "C:\RonsNotes\VM_Drives\Humongus\Humongus.vhdx" -BootDevice IDE -SwitchName "VMExternalNetwork" 
+Set-VMMemory -VMName $VMName -DynamicMemoryEnabled $False
 Set-VMDvdDrive -VMName $VMName -ControllerNumber 1 -ControllerLocation 0 -Path C:\RonsNotes\ISOs\Server2016\14393.0.160715-1616.RS1_RELEASE_SERVER_EVAL_X64FRE_EN-US.ISO
 Set-vm $VMName -ProcessorCount 4 
 Add-VMDvdDrive -VMNAME $VMName -ControllerNumber 1 -ControllerLocation 1 -Path C:\RonsNotes\ISOs\SQL2016\SQLServer2016-x64-ENU.iso
